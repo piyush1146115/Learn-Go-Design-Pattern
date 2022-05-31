@@ -1,24 +1,21 @@
 package main
 
 import "fmt"
-import "github.com/piyush1146115/Learn-Go-Design-Pattern/Creational/Builder"
+
+//import "github.com/piyush1146115/Learn-Go-Design-Pattern/Creational/Builder"
+import "github.com/piyush1146115/Learn-Go-Design-Pattern/Creational/Factory"
 
 func main() {
-	normalBuilder := builder.GetBuilder("normal")
-	iglooBuilder := builder.GetBuilder("igloo")
+	ak47, _ := Factory.GetGun("ak47")
+	musket, _ := Factory.GetGun("musket")
 
-	director := builder.NewDirector(normalBuilder)
-	normalHouse := director.BuildHouse()
+	printDetails(ak47)
+	printDetails(musket)
+}
 
-	fmt.Printf("Normal House Door Type: %s\n", normalHouse.DoorType)
-	fmt.Printf("Normal House Window Type: %s\n", normalHouse.WindowType)
-	fmt.Printf("Normal House Num Floor: %d\n", normalHouse.Floor)
-
-	director.SetBuilder(iglooBuilder)
-	iglooHouse := director.BuildHouse()
-
-	fmt.Printf("\nIgloo House Door Type: %s\n", iglooHouse.DoorType)
-	fmt.Printf("Igloo House Window Type: %s\n", iglooHouse.WindowType)
-	fmt.Printf("Igloo House Num Floor: %d\n", iglooHouse.Floor)
-
+func printDetails(g Factory.IGun) {
+	fmt.Printf("Gun: %s", g.GetName())
+	fmt.Println()
+	fmt.Printf("Power: %d", g.GetPower())
+	fmt.Println()
 }

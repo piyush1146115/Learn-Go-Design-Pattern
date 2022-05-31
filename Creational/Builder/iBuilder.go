@@ -1,6 +1,4 @@
-package main
-
-//package main
+package builder
 
 type iBuilder interface {
 	setWindowType()
@@ -9,7 +7,7 @@ type iBuilder interface {
 	getHouse() house
 }
 
-func getBuilder(builderType string) iBuilder {
+func GetBuilder(builderType string) iBuilder {
 	if builderType == "normal" {
 		return &normalBuilder{}
 	}

@@ -1,4 +1,4 @@
-package main
+package builder
 
 //package main
 
@@ -26,8 +26,8 @@ func (b *normalBuilder) setNumFloor() {
 
 func (b *normalBuilder) getHouse() house {
 	return house{
-		doorType:   b.doorType,
-		windowType: b.windowType,
-		floor:      b.floor,
+		DoorType:   b.doorType,
+		WindowType: b.windowType,
+		Floor:      b.floor,
 	}
 }
